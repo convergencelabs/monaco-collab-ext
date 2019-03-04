@@ -84,4 +84,10 @@ require(['vs/editor/editor.main', 'MonacoCollabExt'], function(m, MonacoCollabEx
       target.updateOptions({readOnly: true});
     }
   });
+
+
+  window.addEventListener('resize', () => {
+    source.layout();
+    target.layout();
+  });
 });
