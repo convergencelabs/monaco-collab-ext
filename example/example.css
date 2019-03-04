@@ -1,0 +1,19 @@
+.body {
+  margin: 0;
+}
+
+.editors {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.editor-column {
+  flex: 1;
+}
+
+.editor {
+  height: 500px;
+  border: 1px solid grey;
+  margin-right: 20px;
+}

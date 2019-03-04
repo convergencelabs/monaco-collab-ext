@@ -1,0 +1,68 @@
+{
+  "name": "@convergencelabs/monaco-collab-ext",
+  "version": "0.1.0",
+  "title": "Monaco Editor Collaborative Extensions",
+  "description": "Collaborative Extensions for the Monaco Editor",
+  "keywords": [
+    "collaboration",
+    "monaco",
+    "editor"
+  ],
+  "homepage": "http://convergencelabs.com",
+  "author": {
+    "name": "Convergence Labs",
+    "email": "info@convergencelabs.com",
+    "url": "http://convergencelabs.com"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/convergencelabs/monaco-collab-ext.git"
+  },
+  "bugs": {
+    "url": "https://github.com/convergencelabs/monaco-collab-ext/issues"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "typings/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.15.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.2.2",
+    "@babel/node": "7.2.2",
+    "@babel/preset-env": "7.2.3",
+    "@babel/preset-stage-3": "7.0.0",
+    "@babel/preset-typescript": "7.1.0",
+    "@babel/register": "7.0.0",
+    "babel-plugin-module-resolver": "3.1.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "del": "3.0.0",
+    "gulp": "4.0.0",
+    "gulp-babel": "8.0.0",
+    "gulp-bump": "3.1.1",
+    "gulp-clean-css": "4.0.0",
+    "gulp-filter-each": "1.0.1",
+    "gulp-header": "2.0.7",
+    "gulp-insert": "0.5.0",
+    "gulp-rename": "1.4.0",
+    "gulp-sourcemaps": "2.6.4",
+    "gulp-typescript": "5.0.0",
+    "gulp-uglify": "3.0.1",
+    "trim": "0.0.1",
+    "ts-loader": "5.3.3",
+    "tslint": "5.12.0",
+    "typescript": "3.3.3333",
+    "webpack": "4.28.1",
+    "webpack-stream": "5.2.1"
+  },
+  "scripts": {
+    "dist": "gulp dist",
+    "clean": "gulp clean"
+  }
+}

@@ -1,0 +1,44 @@
+.monaco-remote-cursor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 4000;
+  width: 2px;
+}
+
+.monaco-remote-cursor:before {
+  content: "";
+  width: 6px;
+  height: 5px;
+  display: block;
+  margin-left: -2px;
+  margin-top: 0;
+  z-index: 4000;
+  background: inherit;
+}
+
+.monaco-remote-cursor-tooltip {
+  position: absolute;
+  white-space: nowrap;
+  color: #FFFFFF;
+  text-shadow: 0 0 1px #000000;
+  opacity: 1.0;
+  font-size: 12px;
+  padding: 2px;
+  font-family: sans-serif;
+  z-index: 4000;
+
+  transition: opacity 0.5s ease-out;
+  -webkit-transition: opacity 0.5s ease-out;
+  -moz-transition: opacity 0.5s ease-out;
+  -ms-transition: opacity 0.5s ease-out;
+  -o-transition: opacity 0.5s ease-out;
+}
+
+.monaco-remote-selection {
+  position: absolute;
+  pointer-events: auto;
+  z-index: 10;
+  opacity: 0.3;
+  background: blue;
+  z-index: 4000;
+}
