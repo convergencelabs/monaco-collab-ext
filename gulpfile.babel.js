@@ -25,6 +25,10 @@ const copyFiles = () =>
   src(["README.md", "LICENSE.txt", "package.json"])
     .pipe(dest("dist"));
 
+const copyDocs = () =>
+  src(["docs/**/*"])
+    .pipe(dest("dist/docs"));
+
 const umd = () => {
   const outputPath = "dist/umd";
 
@@ -88,7 +92,8 @@ const dist = series([
   appendTypingsNamespace,
   css,
   minifyCss,
-  copyFiles]);
+  copyFiles,
+  copyDocs]);
 
 export {
   dist,
