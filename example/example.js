@@ -19,7 +19,8 @@ require(['vs/editor/editor.main', 'MonacoCollabExt'], function(m, MonacoCollabEx
   const target = monaco.editor.create(document.getElementById("target-editor"), {
     value: editorContents,
     theme: "vs-dark'",
-    language: 'javascript'
+    language: 'javascript',
+    readOnly: true
   });
 
   const remoteCursorManager = new MonacoCollabExt.RemoteCursorManager({
@@ -68,13 +69,19 @@ require(['vs/editor/editor.main', 'MonacoCollabExt'], function(m, MonacoCollabEx
   const sourceContentManager = new MonacoCollabExt.EditorContentManager({
     editor: source,
     onInsert(index, text) {
+      target.updateOptions({readOnly: false});
       targetContentManager.insert(index, text);
+      target.updateOptions({readOnly: true});
     },
     onReplace(index, length, text) {
+      target.updateOptions({readOnly: false});
       targetContentManager.replace(index, length, text);
+      target.updateOptions({readOnly: true});
     },
     onDelete(index, length) {
+      target.updateOptions({readOnly: false});
       targetContentManager.delete(index, length);
+      target.updateOptions({readOnly: true});
     }
   });
 });
