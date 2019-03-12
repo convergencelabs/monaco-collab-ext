@@ -222,8 +222,8 @@ export class RemoteSelection {
     if (!this._disposed) {
       this._styleElement.parentElement.removeChild(this._styleElement);
       this.hide();
-      this._onDisposed();
       this._disposed = true;
+      this._onDisposed();
     }
   }
 

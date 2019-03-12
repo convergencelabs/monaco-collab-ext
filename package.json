@@ -1,6 +1,6 @@
 {
   "name": "@convergencelabs/monaco-collab-ext",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "Monaco Editor Collaborative Extensions",
   "description": "Collaborative Extensions for the Monaco Editor",
   "keywords": [
