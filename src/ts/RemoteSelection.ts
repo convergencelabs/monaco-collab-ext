@@ -77,7 +77,7 @@ export class RemoteSelection {
   private readonly _styleElement: HTMLStyleElement;
 
   /**
-   * The Monaco editor isntance to render selection into.
+   * The Monaco editor instance to render selection into.
    * @internal
    */
   private readonly _editor: editor.ICodeEditor;

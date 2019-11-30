@@ -9,7 +9,7 @@ import {Validation} from "./Validation";
  */
 export interface IRemoteSelectionManagerOptions {
   /**
-   * The Monaco Editor instace to render the remote selections into.
+   * The Monaco Editor instance to render the remote selections into.
    */
   editor: monaco.editor.ICodeEditor;
 }

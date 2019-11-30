@@ -24,7 +24,7 @@ a single linear index or as a 2-dimensional position in the form of
 
 ```JavaScript
 const editor = monaco.editor.create(document.getElementById("editor"), {
-  value: "function helloWolrd = () => { console.log('hello world!')",
+  value: "function helloWorld = () => { console.log('hello world!')",
   theme: "vs-dark'",
   language: 'javascript'
 });
@@ -56,7 +56,7 @@ users working in the same document.
 
 ```JavaScript
 const editor = monaco.editor.create(document.getElementById("editor"), {
-  value: "function helloWolrd = () => { console.log('hello world!')",
+  value: "function helloWorld = () => { console.log('hello world!')",
   theme: "vs-dark'",
   language: 'javascript'
 });
@@ -84,7 +84,7 @@ to the editor.
 
 ```JavaScript
 const editor = monaco.editor.create(document.getElementById("editor"), {
-  value: "function helloWolrd = () => { console.log('hello world!')",
+  value: "function helloWorld = () => { console.log('hello world!')",
   theme: "vs-dark'",
   language: 'javascript'
 });
