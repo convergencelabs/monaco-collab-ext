@@ -12,7 +12,7 @@ Install package with NPM and add it to your development dependencies:
 ```npm install --save-dev @convergencelabs/monaco-collab-ext```
 
 ## Demo
-Go [here](https://examples.convergence.io/monaco/index.html) to see a live demo of multiple cursors, multiple selections, and remote scrollbars (Visit on multiple browsers, or even better, point a friend to it too).  This uses [Convergence](https://convergence.io) to handle the synchronization of data and user actions. 
+Go [here](https://examples.convergence.io/examples/monaco/) to see a live demo of multiple cursors, multiple selections, and remote scrollbars (Visit on multiple browsers, or even better, point a friend to it too).  This uses [Convergence](https://convergence.io) to handle the synchronization of data and user actions. 
 
 ## Usage
 
