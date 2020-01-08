@@ -32,8 +32,8 @@ require(['vs/editor/editor.main', 'MonacoCollabExt'], function(m, MonacoCollabEx
   const staticUserCursor = remoteCursorManager.addCursor(staticUser.id, staticUser.color, staticUser.label);
 
   const remoteSelectionManager = new MonacoCollabExt.RemoteSelectionManager({editor: target});
-  remoteSelectionManager.addSelection(sourceUser.id, sourceUser.color);
-  remoteSelectionManager.addSelection(staticUser.id, staticUser.color);
+  remoteSelectionManager.addSelection(sourceUser.id, sourceUser.color, sourceUser.label);
+  remoteSelectionManager.addSelection(staticUser.id, staticUser.color, staticUser.label);
 
   const targetContentManager = new MonacoCollabExt.EditorContentManager({
     editor: target
