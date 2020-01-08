@@ -37,8 +37,6 @@
 .monaco-remote-selection {
   position: absolute;
   pointer-events: auto;
-  z-index: 10;
   opacity: 0.3;
   background: blue;
-  z-index: 4000;
 }
