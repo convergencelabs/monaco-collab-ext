@@ -1,6 +1,6 @@
 {
   "name": "@convergencelabs/monaco-collab-ext",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "title": "Monaco Editor Collaborative Extensions",
   "description": "Collaborative Extensions for the Monaco Editor",
   "keywords": [
@@ -57,7 +57,7 @@
     "trim": "0.0.1",
     "ts-loader": "5.3.3",
     "tslint": "5.12.0",
-    "typescript": "3.3.3333",
+    "typescript": "3.7.4",
     "webpack": "4.28.1",
     "webpack-stream": "5.2.1"
   },
