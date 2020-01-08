@@ -72,11 +72,11 @@ export class RemoteSelectionManager {
    * @param color
    *   The color to render the selection with.
    */
-  public addSelection(id: string, color: string): RemoteSelection {
+  public addSelection(id: string, color: string, label?: string): RemoteSelection {
     const onDisposed = () => {
       this.removeSelection(id);
     };
-    const selection = new RemoteSelection(this._options.editor, id, this._nextClassId++, color, onDisposed);
+    const selection = new RemoteSelection(this._options.editor, id, this._nextClassId++, color, label, onDisposed);
     this._remoteSelections.set(id, selection);
     return selection;
   }

@@ -86,6 +86,12 @@ export class RemoteSelection {
   private readonly _styleElement: HTMLStyleElement;
 
   /**
+   * The label to display on hover
+   * @internal
+   */
+  private readonly _label: string;
+
+  /**
    * The Monaco editor instance to render selection into.
    * @internal
    */
@@ -131,6 +137,7 @@ export class RemoteSelection {
     id: string,
     classId: number,
     color: string,
+    label: string,
     onDisposed: OnDisposed
   ) {
     this._editor = codeEditor;
@@ -138,6 +145,7 @@ export class RemoteSelection {
     const uniqueClassId = `monaco-remote-selection-${classId}`;
     this._className = `monaco-remote-selection ${uniqueClassId}`;
     this._styleElement = RemoteSelection._addDynamicStyleElement(uniqueClassId, color);
+    this._label = label;
     this._decorations = [];
     this._onDisposed = onDisposed;
   }
@@ -254,7 +262,10 @@ export class RemoteSelection {
             this._endPosition.column
           ),
           options: {
-            className: this._className
+            className: this._className,
+            hoverMessage: this._label != null ? {
+              value: this._label
+            } : null
           }
         }
       ]
