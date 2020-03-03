@@ -12,6 +12,21 @@ import {EditorContentManager} from "./EditorContentManager";
 import {OnDisposed} from "./OnDisposed";
 import {Validation} from "./Validation";
 
+interface Configuration {
+  readonly lineHeight: number;
+}
+
+function getConfiguration(editorInstance: editor.ICodeEditor): Configuration {
+  // Support for Monaco < 0.19.0
+  if (typeof (editorInstance as any).getConfiguration === 'function') {
+    return (editorInstance as any).getConfiguration()
+  }
+
+  return {
+    lineHeight: editorInstance.getOption(editor.EditorOption.lineHeight)
+  };
+}
+
 /**
  * This class implements a Monaco Content Widget to render a remote user's
  * cursor, and an optional tooltip.
@@ -47,7 +62,7 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
     this._onDisposed = onDisposed;
 
     // Create the main node for the cursor element.
-    const {lineHeight} = this._editor.getConfiguration();
+    const {lineHeight} = getConfiguration(this._editor);
     this._domNode = document.createElement("div");
     this._domNode.className = "monaco-remote-cursor";
     this._domNode.style.background = color;
