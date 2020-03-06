@@ -12,14 +12,14 @@ import {EditorContentManager} from "./EditorContentManager";
 import {OnDisposed} from "./OnDisposed";
 import {Validation} from "./Validation";
 
-interface Configuration {
+interface IConfiguration {
   readonly lineHeight: number;
 }
 
-function getConfiguration(editorInstance: editor.ICodeEditor): Configuration {
+function getConfiguration(editorInstance: editor.ICodeEditor): IConfiguration {
   // Support for Monaco < 0.19.0
-  if (typeof (editorInstance as any).getConfiguration === 'function') {
-    return (editorInstance as any).getConfiguration()
+  if (typeof (editorInstance as any).getConfiguration === "function") {
+    return (editorInstance as any).getConfiguration();
   }
 
   return {
