@@ -171,17 +171,10 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
   }
 
   private _showTooltip(): void {
-    this._updateTooltipPosition();
-
-    if (this._hideTimer !== null) {
-      clearTimeout(this._hideTimer);
-    } else {
-      this._setTooltipVisible(true);
-    }
+    this._setTooltipVisible(true);
 
     this._hideTimer = setTimeout(() => {
       this._setTooltipVisible(false);
-      this._hideTimer = null;
     }, this._tooltipDuration);
   }
 
@@ -197,7 +190,12 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
   }
 
   private _setTooltipVisible(visible: boolean): void {
+    if (this._hideTimer !== null) {
+      clearTimeout(this._hideTimer);
+      this._hideTimer = null;
+    }
     if (visible) {
+      this._updateTooltipPosition();
       this._tooltipNode.style.opacity = "1.0";
     } else {
       this._tooltipNode.style.opacity = "0";
