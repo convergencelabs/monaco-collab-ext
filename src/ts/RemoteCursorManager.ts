@@ -47,7 +47,7 @@ export class RemoteCursorManager {
    * The default values for optional parameters.
    * @internal
    */
-  private static readonly DEFAULT_OPTIONS = {tooltips: true, tooltipDuration: 1};
+  private static readonly DEFAULT_OPTIONS: Partial<IRemoteCursorManagerOptions> = {tooltips: true, tooltipDuration: 1, showTooltipOnHover: false};
 
   /**
    * A counter that generates unique ids for the cursor widgets.
