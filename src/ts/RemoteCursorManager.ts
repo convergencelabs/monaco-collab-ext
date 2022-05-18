@@ -24,7 +24,7 @@ export interface IRemoteCursorManagerOptions {
   editor: monaco.editor.ICodeEditor;
 
   /**
-   * Determines if tooltips will be shown when the cursor is moved.
+   * Determines if tooltips will be shown when the cursor is moved or hovered.
    */
   tooltips?: boolean;
 
@@ -33,6 +33,11 @@ export interface IRemoteCursorManagerOptions {
    * it was last moved.
    */
   tooltipDuration?: number;
+
+  /**
+   * Show the tooltip when the cursor is hovered
+   */
+  showTooltipOnHover?: boolean;
 }
 
 /**
@@ -120,6 +125,7 @@ export class RemoteCursorManager {
       label,
       this._options.tooltips,
       tooltipDurationMs,
+      this._options.showTooltipOnHover,
       () => this.removeCursor(id));
     this._cursorWidgets.set(id, cursorWidget);
 

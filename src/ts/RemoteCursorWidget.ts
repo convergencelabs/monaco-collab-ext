@@ -55,6 +55,7 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
               label: string,
               tooltipEnabled: boolean,
               tooltipDuration: number,
+              showTooltipOnHover: boolean,
               onDisposed: OnDisposed) {
     this._editor = codeEditor;
     this._tooltipDuration = tooltipDuration;
@@ -81,6 +82,16 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
       this._scrollListener = this._editor.onDidScrollChange(() => {
         this._updateTooltipPosition();
       });
+
+      if (showTooltipOnHover) {
+        this._domNode.style.pointerEvents = 'auto';
+        this._domNode.addEventListener('mouseover', () => {
+          this._setTooltipVisible(true);
+        })
+        this._domNode.addEventListener('mouseout', () => {
+          this._setTooltipVisible(false);
+        })
+      }
     } else {
       this._tooltipNode = null;
       this._scrollListener = null;
