@@ -51,10 +51,12 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
 
   constructor(codeEditor: editor.ICodeEditor,
               widgetId: string,
+              className: string | undefined,
               color: string,
               label: string,
               tooltipEnabled: boolean,
               tooltipDuration: number,
+              tooltipClassName: string | undefined,
               onDisposed: OnDisposed) {
     this._editor = codeEditor;
     this._tooltipDuration = tooltipDuration;
@@ -64,14 +66,14 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
     // Create the main node for the cursor element.
     const {lineHeight} = getConfiguration(this._editor);
     this._domNode = document.createElement("div");
-    this._domNode.className = "monaco-remote-cursor";
+    this._domNode.className = classNames('monaco-remote-cursor', className)
     this._domNode.style.background = color;
     this._domNode.style.height = `${lineHeight}px`;
 
     // Create the tooltip element if the tooltip is enabled.
     if (tooltipEnabled) {
       this._tooltipNode = document.createElement("div");
-      this._tooltipNode.className = "monaco-remote-cursor-tooltip";
+      this._tooltipNode.className = classNames('monaco-remote-cursor-tooltip', tooltipClassName)
       this._tooltipNode.style.background = color;
       this._tooltipNode.innerHTML = label;
       this._domNode.appendChild(this._tooltipNode);
@@ -242,4 +244,8 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
       this._updatePosition(position);
     }
   }
+}
+
+function classNames(...names: (string|undefined|null)[]) {
+  return names.filter(className => className != null && className.length > 0).join(' ')
 }

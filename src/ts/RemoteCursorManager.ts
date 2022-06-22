@@ -24,6 +24,11 @@ export interface IRemoteCursorManagerOptions {
   editor: monaco.editor.ICodeEditor;
 
   /**
+   * An additional class name for the cursor element, to tweak the default style
+   */
+  className?: string;
+
+  /**
    * Determines if tooltips will be shown when the cursor is moved.
    */
   tooltips?: boolean;
@@ -33,6 +38,11 @@ export interface IRemoteCursorManagerOptions {
    * it was last moved.
    */
   tooltipDuration?: number;
+
+  /**
+   * An additional class name for the tooltip element, to tweak the default style
+   */
+  tooltipClassName?: string;
 }
 
 /**
@@ -116,10 +126,12 @@ export class RemoteCursorManager {
     const cursorWidget = new RemoteCursorWidget(
       this._options.editor,
       widgetId,
+      this._options.className,
       color,
       label,
       this._options.tooltips,
       tooltipDurationMs,
+      this._options.tooltipClassName,
       () => this.removeCursor(id));
     this._cursorWidgets.set(id, cursorWidget);
 
