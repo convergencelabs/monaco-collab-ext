@@ -56,6 +56,7 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
               label: string,
               tooltipEnabled: boolean,
               tooltipDuration: number,
+              showTooltipOnHover: boolean,
               tooltipClassName: string | undefined,
               onDisposed: OnDisposed) {
     this._editor = codeEditor;
@@ -83,6 +84,16 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
       this._scrollListener = this._editor.onDidScrollChange(() => {
         this._updateTooltipPosition();
       });
+
+      if (showTooltipOnHover) {
+        this._domNode.style.pointerEvents = 'auto';
+        this._domNode.addEventListener('mouseover', () => {
+          this._setTooltipVisible(true);
+        })
+        this._domNode.addEventListener('mouseout', () => {
+          this._setTooltipVisible(false);
+        })
+      }
     } else {
       this._tooltipNode = null;
       this._scrollListener = null;
@@ -173,17 +184,10 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
   }
 
   private _showTooltip(): void {
-    this._updateTooltipPosition();
-
-    if (this._hideTimer !== null) {
-      clearTimeout(this._hideTimer);
-    } else {
-      this._setTooltipVisible(true);
-    }
+    this._setTooltipVisible(true);
 
     this._hideTimer = setTimeout(() => {
       this._setTooltipVisible(false);
-      this._hideTimer = null;
     }, this._tooltipDuration);
   }
 
@@ -199,7 +203,12 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
   }
 
   private _setTooltipVisible(visible: boolean): void {
+    if (this._hideTimer !== null) {
+      clearTimeout(this._hideTimer);
+      this._hideTimer = null;
+    }
     if (visible) {
+      this._updateTooltipPosition();
       this._tooltipNode.style.opacity = "1.0";
     } else {
       this._tooltipNode.style.opacity = "0";

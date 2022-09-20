@@ -40,6 +40,11 @@ export interface IRemoteCursorManagerOptions {
   tooltipDuration?: number;
 
   /**
+   * Show the tooltip when the cursor is hovered
+   */
+  showTooltipOnHover?: boolean;
+  
+  /**
    * An additional class name for the tooltip element, to tweak the default style
    */
   tooltipClassName?: string;
@@ -57,7 +62,7 @@ export class RemoteCursorManager {
    * The default values for optional parameters.
    * @internal
    */
-  private static readonly DEFAULT_OPTIONS = {tooltips: true, tooltipDuration: 1};
+  private static readonly DEFAULT_OPTIONS: Partial<IRemoteCursorManagerOptions> = {tooltips: true, tooltipDuration: 1, showTooltipOnHover: false};
 
   /**
    * A counter that generates unique ids for the cursor widgets.
@@ -131,6 +136,7 @@ export class RemoteCursorManager {
       label,
       this._options.tooltips,
       tooltipDurationMs,
+      this._options.showTooltipOnHover,
       this._options.tooltipClassName,
       () => this.removeCursor(id));
     this._cursorWidgets.set(id, cursorWidget);
