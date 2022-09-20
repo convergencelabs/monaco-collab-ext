@@ -75,7 +75,7 @@ export class RemoteCursorWidget implements editor.IContentWidget, IDisposable {
       this._tooltipNode = document.createElement("div");
       this._tooltipNode.className = classNames('monaco-remote-cursor-tooltip', tooltipClassName)
       this._tooltipNode.style.background = color;
-      this._tooltipNode.innerHTML = label;
+      this._tooltipNode.innerText = label;
       this._domNode.appendChild(this._tooltipNode);
 
       // we only need to listen to scroll positions to update the
